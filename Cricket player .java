@@ -1,52 +1,83 @@
-import java.io*;
-import java.util.scanner;
-class cricketplayer{ 
-int pid;
-string name;
-int totalrun;
-int inningsplayed;
-int notouttimes;
-double average;
-cricketplayer1(inypid,string pname,inttotalRuns,intinningsplayef,int notoutTimes){
-  this.pid=pid;
-  this.pname=pname;
-  this.Inningsplayed=inningsplayed;
-  this.notoutTimes=notoutTimes;
-  this.average=(double)totalRuns/(inningsplayed-notoutTimes);
-}
-}
-public class cricketplayer{
-  public static void main(string[]args){
-    scanner scanner=newscanner(sytem.in);
-    system.out.print("enter the number of cricketplayer:");
-    int n=scanner.nextInt();
-    cricketplayer1[]player=new cricketplayer1[n];
-    for(int i=0;i<n;i++){
-      system.out.print\n("\nenter details for player"+(i+1)+":"];
-       system.out.print("playerID:");
-      int pid=scanner.nextInt();
-      scanner.nextLine();
-      system.out.print("playerName:");
-      string pname=scanner.nextLine();
-      system.out.print("TotalRuns:");
-      inttotalRuns= scanner.nextInt();
-      system.out.print("Inningsplayed:");
-      int inningsplayed=scanner.nextInt();
-      system.out.print("Not out Times:);
-      int notoutTimes=scanner.nextInt();
-      players[i]=New cricketplayer2(pid,pname,totalRuns,inningplayed,notoutTimes)
-                                    }
-    double maxAverage=0;name
-    int maxAverageIndex=0;
-    for(int i=0;i<n;i++){
-      if(players[i].average>maxAverage){
-        maxAverageIndex=i;
-      }
+import java.util.Scanner;
+
+class CricketPlayer {
+    int pid;
+    String pname;
+    int totalRuns;
+    int inningsPlayed;
+    int notOutTimes;
+
+  
+    public CricketPlayer(int pid, String pname, int totalRuns, int inningsPlayed, int notOutTimes) {
+        this.pid = pid;
+        this.pname = pname;
+        this.totalRuns = totalRuns;
+        this.inningsPlayed = inningsPlayed;
+        this.notOutTimes = notOutTimes;
+    }
+
+
+    public double getAverage() {
+        if (inningsPlayed == 0) {
+            return 0;
         }
-    system.out.println("/n player with the maximum average:");
-    system.out.println("playerID:"+players[maxAverage-Index]pid);
-    system.out.println("playerName:"+ players[maxAverageIndex].pname);
-    system.out.println("Average:"+players[maxAverageIndex].average); 
-  scanner.close();
+        return (double) totalRuns / inningsPlayed;
+    }
+
+    
+    public void displayDetails() {
+        System.out.println("Player ID: " + pid);
+        System.out.println("Player Name: " + pname);
+        System.out.println("Total Runs: " + totalRuns);
+        System.out.println("Innings Played: " + inningsPlayed);
+        System.out.println("Not Out Times: " + notOutTimes);
+        System.out.println("Average Runs: " + getAverage());
+    }
+}
+
+public class CricketPlayerApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of players: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); 
+
+        CricketPlayer[] players = new CricketPlayer[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for player " + (i + 1) + ":");
+            System.out.print("Player ID: ");
+            int pid = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.print("Player Name: ");
+            String pname = scanner.nextLine();
+
+            System.out.print("Total Runs: ");
+            int totalRuns = scanner.nextInt();
+
+            System.out.print("Innings Played: ");
+            int inningsPlayed = scanner.nextInt();
+
+            System.out.print("Not Out Times: ");
+            int notOutTimes = scanner.nextInt();
+            scanner.nextLine();
+
+            players[i] = new CricketPlayer(pid, pname, totalRuns, inningsPlayed, notOutTimes);
         }
+
+        
+        CricketPlayer maxAveragePlayer = players[0];
+        for (int i = 1; i < n; i++) {
+            if (players[i].getAverage() > maxAveragePlayer.getAverage()) {
+                maxAveragePlayer = players[i];
+            }
+        }
+
+        System.out.println("\nPlayer with the maximum average:");
+        maxAveragePlayer.displayDetails();
+
+        scanner.close();
+    }
 }
