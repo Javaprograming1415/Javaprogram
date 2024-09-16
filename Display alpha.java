@@ -1,5 +1,6 @@
 
-public class DisplayCharacters {
+public class DisplayCharacters
+    {
     public static void main(String[] args) {
         
         for (char ch = 'A'; ch <= 'Z'; ch++) {
