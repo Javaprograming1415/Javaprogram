@@ -1,10 +1,9 @@
-public class displayalphabets
-{
-public static void main (string[] args)
-{
-for(char ch ='A';ch='z';ch++)
-{
-system.out.print(ch+" ")
-}
-}
+
+public class DisplayCharacters {
+    public static void main(String[] args) {
+        
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            System.out.print(ch + " ");
+        }
+    }
 }
