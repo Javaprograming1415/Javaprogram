@@ -1,0 +1,9 @@
+import java.io*;
+import java.util.scanner;
+class cricketplayer{ 
+int pid;
+string name;
+int totalrun;
+int inningsplayed;
+int notouttimes;
+double average;
